@@ -1,0 +1,57 @@
+
+
+.container{
+    display: flex;
+    flex-direction: column;
+}
+.up-part{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background-color: red;
+    color: white;
+    padding: 7px;
+
+}
+.book-part{
+    display: flex;
+    flex-flow: nowrap;
+    /* justify-content: center;
+    align-items: center; */
+    background-color: #F5F5F5;
+    height: auto;
+    flex-wrap: wrap;
+margin: 2px;
+}
+.book-part >div{
+    margin: 2px;
+}
+.input-style{
+    border-radius: 10px;
+    height: 40px;
+    width: 250px;
+    outline:none;
+    background-color: aqua;
+}
+.menu{
+    padding: 2px;
+   transform:translateY(20%) ; 
+   height: 55px;
+   cursor: pointer;
+}
+h6{
+    padding: 67px;
+}
+h6:hover{
+background-color: chocolate;
+}
+
+
+
+
+
+
+
+.ms-auto{
+margin-left: auto;
+}
