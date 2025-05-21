@@ -7,50 +7,70 @@
 .up-part{
     display: flex;
     flex-direction: row;
-    width: 100%;
-    background-color: red;
+    width: 98%;
+    background-color: #2C3E50; /* Classic navy */
     color: white;
     padding: 7px;
-
+    position: absolute;
+    height: 58px;
 }
 .book-part{
-    display: flex;
-    flex-flow: nowrap;
+    display: grid;
+    grid-template-columns: 24.5% 24.5% 24.5% 24.5% ;
+    gap: 10px;
+    /* flex-flow: nowrap; */
+    width: 100%;
     /* justify-content: center;
     align-items: center; */
-    background-color: #F5F5F5;
+    background-color: #D3D3D3;
     height: auto;
-    flex-wrap: wrap;
-margin: 2px;
+    /* flex-wrap: wrap; */
+    margin-top: 5%;
 }
 .book-part >div{
-    margin: 2px;
+    /* margin: 2px; */
 }
 .input-style{
     border-radius: 10px;
     height: 40px;
     width: 250px;
     outline:none;
-    background-color: aqua;
+    background-color: #ECF0F1; /* Change based on header */
 }
 .menu{
     padding: 2px;
    transform:translateY(20%) ; 
-   height: 55px;
+   height: 22px;
    cursor: pointer;
 }
-h6{
-    padding: 67px;
+a{
+    padding: 36px;
+    text-decoration: none;
 }
-h6:hover{
+a:hover{
 background-color: chocolate;
 }
+i{
+    cursor: pointer;
+}
+.fixed{
+    position: fixed;
 
-
-
-
-
-
+}
+.card-book:hover{
+    transform: scale(1.1);
+    opacity: 1.8;
+}
+.input-style:hover{
+  border: 1px solid aqua;
+}
+.menu:hover{
+    opacity: 0.9;
+    border: 1px solid white;
+}
+#main-page{
+    display: none;
+}
 
 .ms-auto{
 margin-left: auto;
