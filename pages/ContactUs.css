@@ -1,9 +1,13 @@
+*{
+    color: white;
+}
+
 body{
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: rgb(194, 194, 86);
+    background-color: #3f84c3;
 }
 form{
     width: 500px;
@@ -11,20 +15,30 @@ form{
     border-radius: 10px;
 background-color: white;
 display: flex;
-justify-content: center;
+justify-content: flex-start;
 align-items: center;
 flex-direction: column;
+background-color: #414c9b;
+border:none;
 }
 input{
     width: 80%;
     height: 40px;
     border-radius: 4px;
     outline: none;
+    background-color: #414c9b;
+color: white;
+border-right-style:none ;
+border-left-style:none ;
+border-top-style:none ;
+
 }
 textarea{
     width: 80%;
     height: 100px;
     outline: none;
+    background-color: #414c9b;
+color: white;
 }
 .btn-style{
     background-color: rgb(34, 34, 197);
@@ -36,4 +50,7 @@ textarea{
 .btn-style:hover{
     opacity: 0.9;
     color: green;
+}
+input:hover, textarea:hover{
+    border: 1px solid green;
 }

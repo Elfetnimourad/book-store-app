@@ -1,7 +1,8 @@
 let bookPart = document.querySelector(".book-part");
 let menuIcon = document.querySelector("i");
 let upPart = document.querySelector(".up-part");
-menuIcon.addEventListener("click", function () {
+
+menuIcon?.addEventListener("click", function () {
   let sideBar = document.createElement("div");
   //   let [Home, About, Category, ContactUs] = document.createElement("h6");
   let Home = document.createElement("a");
@@ -14,9 +15,9 @@ menuIcon.addEventListener("click", function () {
   closeIcon.style.lineHeight = "50px";
   menuIcon.style.display = "none";
   //   closeIcon.style.backgroundColor = "red";
-  About.href = "/About.html";
+  About.href = "/pages/About.html";
   Home.href = "/";
-  ContactUs.href = "/ContactUs.html";
+  ContactUs.href = "/pages/ContactUs.html";
 
   Home.innerText = "Home";
   About.innerText = "About";
@@ -40,31 +41,31 @@ menuIcon.addEventListener("click", function () {
   upPart.appendChild(sideBar);
 
   // route
-  // const route = (event) => {
-  //   event = event || window.event;
-  //   event.preventDefault();
-  //   window.history.pushState({}, "", event.target.href);
-  //   handleLocation();
-  // };
-  // const routes = {
-  //   404: "/404.html",
-  //   "/": "/index.html",
-  //   "/About": "/About.html",
-  //   "/ContactUs": "/ContactUs.html",
-  // };
+  const route = (event) => {
+    event = event || window.event;
+    event.preventDefault();
+    window.history.pushState({}, "", event.target.href);
+    handleLocation();
+  };
+  const routes = {
+    404: "/404.html",
+    "/": "/index.html",
+    "/About": "/pages/About.html",
+    "/ContactUs": "/pages/ContactUs.html",
+  };
   const handleLocation = async () => {
-    // const path = window.location.pathname;
-    // const route = routes[path] || routes[404];
-    // await fetch(route).then((data) => data.text());
+    const path = window.location.pathname;
+    const route = routes[path] || routes[404];
+    await fetch(route).then((data) => data.text());
     // document.getElementById("main-page").innerHTML = html;
   };
 
-  // window.onpopstate = handleLocation;
-  // window.route = route;
+  window.onpopstate = handleLocation;
+  window.route = route;
 
-  // handleLocation();
+  handleLocation();
 
-  // About.onclick = route();
+  About.onclick = route();
 
   //close Icon
   closeIcon.addEventListener("click", function () {
@@ -97,7 +98,7 @@ async function getData() {
       bookTitle.innerText = element.title;
       cardBook.appendChild(bookCover);
       cardBook.appendChild(bookTitle);
-      bookPart.appendChild(cardBook);
+      bookPart?.appendChild(cardBook);
     });
   } catch (err) {
     console.log(err);
