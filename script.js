@@ -1,15 +1,19 @@
 let bookPart = document.querySelector(".book-part");
 let menuIcon = document.querySelector("i");
 let upPart = document.querySelector(".up-part");
+let input = document.querySelector("input");
 
-menuIcon?.addEventListener("click", function () {
+let url = "https://openlibrary.org/subjects/history.json?limit=20";
+let array = [];
+menuIcon.addEventListener("click", function () {
   let sideBar = document.createElement("div");
   //   let [Home, About, Category, ContactUs] = document.createElement("h6");
   let Home = document.createElement("a");
   let About = document.createElement("a");
-  let Category = document.createElement("a");
+  let Category = document.createElement("select");
   let ContactUs = document.createElement("a");
   let closeIcon = document.createElement("i");
+  let optGr = document.createElement("optgroup");
   closeIcon.className = "bi bi-arrow-left";
   closeIcon.style.color = "white";
   closeIcon.style.lineHeight = "50px";
@@ -39,6 +43,45 @@ menuIcon?.addEventListener("click", function () {
   sideBar.style.backgroundColor = "black";
   sideBar.style.opacity = "0.9";
   upPart.appendChild(sideBar);
+  //side bar for category
+
+  // Category.appendChild(categoryLabel);
+  let opt1 = document.createElement("option");
+  let opt2 = document.createElement("option");
+  let opt3 = document.createElement("option");
+  let opt4 = document.createElement("option");
+  opt1.innerText = "Category";
+  opt2.innerText = "programming";
+  opt3.innerText = "history";
+  opt4.innerText = "math";
+  if (opt2.value === "programming") {
+  }
+  opt2.addEventListener(
+    "click",
+    getData(`https://openlibrary.org/subjects/programming.json?limit=20`)
+  );
+
+  // arr.addEventListener("click", function () {
+  //   subject = opt2.value;
+  //   console.log(subject);
+  // });
+  optGr.appendChild(opt1);
+  optGr.appendChild(opt2);
+  optGr.appendChild(opt3);
+  optGr.appendChild(opt4);
+  Category.appendChild(optGr);
+  console.log(optGr.children.item(1).textContent, "this opt");
+  Category.addEventListener("click", function () {
+    // console.log("from contact us");
+    // let sideBarForCategory = document.createElement("div");
+    // sideBarForCategory.style.height = "20vh";
+    // sideBarForCategory.style.width = 10%";
+    // sideBarForCategory.style.backgroundColor = "white";
+    // sideBarForCategory.style.opacity = "0.9";
+    // sideBarForCategory.style.zIndex = "99999";
+    // // Category.style.display = "flex";
+    // sideBar.appendChild(sideBarForCategory);
+  });
 
   // route
   const route = (event) => {
@@ -76,13 +119,18 @@ menuIcon?.addEventListener("click", function () {
 async function getData() {
   try {
     const res = await fetch(
-      "https://openlibrary.org/subjects/programming.json?limit=20"
+      `https://openlibrary.org/subjects/programming.json?limit=20`
     );
+
     const data = await res.json();
     let arr = data.works;
     console.log(data);
     console.log(arr);
-    arr.map((element) => {
+    input.onchange = function (e) {
+      arr = arr?.filter((ele) => ele.title === e.target.value);
+      console.log(arr);
+    };
+    arr = arr?.forEach((element) => {
       let cardBook = document.createElement("div");
       let bookCover = document.createElement("img");
       let bookTitle = document.createElement("p");

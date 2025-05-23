@@ -46,8 +46,9 @@
 a{
     padding: 36px;
     text-decoration: none;
+    cursor: pointer;
 }
-a:hover{
+a:hover,select:hover {
 background-color: chocolate;
 }
 i{
@@ -64,6 +65,10 @@ i{
 .input-style:hover{
   border: 1px solid aqua;
 }
+option{
+    background-color: white;
+    color: black;
+}
 .menu:hover{
     opacity: 0.9;
     border: 1px solid white;
@@ -71,7 +76,15 @@ i{
 #main-page{
     display: none;
 }
-
+select{
+    background-color:black;
+    color:white;
+    padding-left: 36px;
+    border: none;
+    outline: none;
+    padding: 36px;
+    cursor: pointer;
+}
 .ms-auto{
 margin-left: auto;
 }
