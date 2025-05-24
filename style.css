@@ -27,9 +27,7 @@
     /* flex-wrap: wrap; */
     margin-top: 5%;
 }
-.book-part >div{
-    /* margin: 2px; */
-}
+
 .input-style{
     border-radius: 10px;
     height: 40px;
@@ -59,7 +57,7 @@ i{
 
 }
 .card-book:hover{
-    transform: scale(1.1);
+    transform: scale(1.02);
     opacity: 1.8;
 }
 .input-style:hover{
@@ -88,3 +86,46 @@ select{
 .ms-auto{
 margin-left: auto;
 }
+
+
+
+ .book-part {
+      position: relative;
+    }
+
+    .menu-icon {
+      display: flex;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 24px;
+      color: black;
+    }
+
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      width: 30%;
+      height: 100vh;
+      position: fixed;
+      z-index: 9999;
+      background-color: black;
+      opacity: 0.9;
+      padding: 20px;
+      gap: 15px;
+    }
+
+    .sidebar i {
+      color: white;
+      line-height: 50px;
+    }
+
+    .sidebar a,
+    .sidebar select {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+    }
+    .d-none{
+        display: none;
+    }
