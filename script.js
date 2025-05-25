@@ -5,9 +5,12 @@ let input = document.querySelector("input");
 let sideBar = document.querySelector(".sidebar");
 let closeIcon = document.querySelector("#closeIcon");
 let allOptionsOfSelect = document.querySelectorAll("option");
+let categoryList = document.querySelector("#categorySelect");
+let cardBook = document.querySelector(".card-book");
+let bookCover = document.querySelector("img");
+let bookTitle = document.querySelector("p");
 
 console.log(allOptionsOfSelect);
-let url = "https://openlibrary.org/subjects/history.json?limit=20";
 let array = [];
 closeIcon.addEventListener("click", function () {
   sideBar.classList.toggle("d-none", true);
@@ -15,40 +18,35 @@ closeIcon.addEventListener("click", function () {
 menuIcon.addEventListener("click", function () {
   sideBar.classList.toggle("d-none", false);
 });
-async function getData(url) {
+
+categoryList.addEventListener("change", function () {
+  console.log("hiiii");
+  bookPart.classList.toggle("d-none", true);
+  getData(
+    `https://openlibrary.org/subjects/${categoryList.value}.json?limit=20`
+  );
+  bookPart.classList.toggle("d-none", false);
+});
+
+async function getData(
+  url = "https://openlibrary.org/subjects/programming.json?limit=20"
+) {
   try {
     const res = await fetch(url);
 
     const data = await res.json();
     let arr = data.works;
     console.log(data);
-    console.log(arr);
-    input.onchange = function (e) {
-      let arrFilter = arr?.filter((ele) => ele.title === e.target.value);
-      console.log(arr);
-    };
-    arr?.forEach((element) => {
-      let cardBook = document.createElement("div");
-      let bookCover = document.createElement("img");
-      let bookTitle = document.createElement("p");
-      //   cardBook.style.width = "24%";
-      cardBook.style.height = "100%";
-      cardBook.style.borderRadius = "10px";
-      cardBook.style.backgroundColor = "white";
-      cardBook.className = "card-book";
-      bookCover.src = `https://covers.openlibrary.org/b/id/${element.cover_id}-M.jpg`;
-      bookCover.style.width = "99%";
-      bookCover.style.height = "80%";
-      let bookPdf = document.createElement("a");
-      bookPdf.href = `https://openlibrary.org/${element.key}/${element.title}.pdf`;
-      bookPdf.innerHTML = "read";
-      bookTitle.innerText = element.title;
-      cardBook.appendChild(bookCover);
-      cardBook.appendChild(bookTitle);
-      cardBook.appendChild(bookPdf);
+    console.log(arr, "let's se this array");
 
-      bookPart?.appendChild(cardBook);
-    });
+    for (let i = 0; i < (20 && arr.length); i++) {
+      //   cardBook.style.width = "24%";
+
+      bookCover.src = `https://covers.openlibrary.org/b/id/${arr[i].cover_id}-M.jpg`;
+
+      bookPdf.href = `https://openlibrary.org/${arr[i].key}/${arr[i].title}.pdf`;
+      bookTitle.innerText = arr[i].title;
+    }
   } catch (err) {
     console.log(err);
   }
@@ -56,7 +54,7 @@ async function getData(url) {
 window.onscroll = function () {
   upPart.classList.add("fixed");
 };
-// getData(`https://openlibrary.org/subjects/science.json?limit=20`);
+getData(`https://openlibrary.org/subjects/science.json?limit=20`);
 //63a6b97b
 
 // function () {
