@@ -1,4 +1,3 @@
-let bookPart = document.querySelector(".book-part");
 let menuIcon = document.querySelector("i");
 let upPart = document.querySelector(".up-part");
 let input = document.querySelector("input");
@@ -6,12 +5,9 @@ let sideBar = document.querySelector(".sidebar");
 let closeIcon = document.querySelector("#closeIcon");
 let allOptionsOfSelect = document.querySelectorAll("option");
 let categoryList = document.querySelector("#categorySelect");
-let cardBook = document.querySelectorAll(".card-book");
-let bookCover = document.querySelectorAll("img");
-let bookTitle = document.querySelectorAll("p");
-console.log(cardBook);
-console.log(allOptionsOfSelect);
-let array = [];
+let bookPart = document.querySelector(".book-part");
+// let array = [];
+
 closeIcon.addEventListener("click", function () {
   sideBar.classList.toggle("d-none", true);
 });
@@ -23,32 +19,24 @@ categoryList.addEventListener("change", function () {
   console.log("hiiii");
   bookPart.classList.toggle("d-none", true);
   getData(
-    `https://openlibrary.org/subjects/${categoryList.value}.json?limit=20`
+    `https://openlibrary.org/subjects/${categoryList.value}.json?limit=52`,
+    { method: "PUT" }
   );
   bookPart.classList.toggle("d-none", false);
 });
 
-async function getData(
-  url = "https://openlibrary.org/subjects/programming.json?limit=20"
-) {
+async function getData(url) {
   try {
     const res = await fetch(url);
 
     const data = await res.json();
     let arr = data.works;
     console.log(data);
-    console.log(arr, "let's se this array");
+    input.onchange = function (e) {
+      showItems(arr.filter((ele) => ele.title === e.target.value));
+    };
 
-    //   cardBook.style.width = "24%";
-    arr.forEach((element, i) => {
-      bookCover[
-        i
-      ].src = `https://covers.openlibrary.org/b/id/${element.cover_id}-M.jpg`;
-      // bookPdf[
-      //   i
-      // ].href = `https://openlibrary.org/${element.key}/${element.title}.pdf`;
-      bookTitle[i].innerText = element.title;
-    });
+    showItems(arr);
   } catch (err) {
     console.log(err);
   }
@@ -56,8 +44,37 @@ async function getData(
 window.onscroll = function () {
   upPart.classList.add("fixed");
 };
-getData(`https://openlibrary.org/subjects/science.json?limit=20`);
+getData(`https://openlibrary.org/subjects/science.json?limit=52`);
 //63a6b97b
+function showItems(items) {
+  bookPart.innerHTML = "";
+
+  items.forEach((element) => {
+    let bookPart = document.querySelector(".book-part");
+
+    //   cardBook.style.width = "24%";
+    let cardBook = document.createElement("div");
+    let bookCover = document.createElement("img");
+    let bookTitle = document.createElement("p");
+    cardBook.style.height = "90%";
+    cardBook.style.borderRadius = "10px";
+    cardBook.style.backgroundColor = "white";
+    cardBook.className = "card-book";
+    bookCover.src = `https://covers.openlibrary.org/b/id/${element.cover_id}-M.jpg`;
+    bookCover.style.width = "99%";
+    bookCover.style.height = "80%";
+    let bookPdf = document.createElement("a");
+    bookPdf.className = "bookPdf";
+    bookPdf.href = `https://openlibrary.org/${element.key}/${element.title}.pdf`;
+    bookPdf.innerHTML = "read";
+    bookTitle.innerText = element.title;
+    cardBook.appendChild(bookCover);
+    cardBook.appendChild(bookTitle);
+    cardBook.appendChild(bookPdf);
+
+    bookPart?.appendChild(cardBook);
+  });
+}
 
 // function () {
 //   let sideBar = document.createElement("div");
