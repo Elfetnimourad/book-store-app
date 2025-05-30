@@ -6,6 +6,7 @@ let closeIcon = document.querySelector("#closeIcon");
 let allOptionsOfSelect = document.querySelectorAll("option");
 let categoryList = document.querySelector("#categorySelect");
 let bookPart = document.querySelector(".book-part");
+let About = document.getElementById("aboutLink");
 // let array = [];
 
 closeIcon.addEventListener("click", function () {
@@ -14,6 +15,29 @@ closeIcon.addEventListener("click", function () {
 menuIcon.addEventListener("click", function () {
   sideBar.classList.toggle("d-none", false);
 });
+//   // route
+// const route = (event) => {
+//   event = event || window.event;
+//   event.preventDefault();
+//   window.history.pushState({}, "", event.currentTarget.href);
+//   handleLocation();
+//   console.log("hhh");
+// };
+// const routes = {
+//   404: "/404.html",
+//   "/": "/index.html",
+//   "/About": "/pages/about.html",
+//   "/ContactUs": "/pages/ContactUs.html",
+// };
+// const handleLocation = async () => {
+//   const path = window.location.pathname;
+//   const route = routes[path] || routes[404];
+//   const html = await fetch(route).then((data) => data.text());
+//   document.getElementById("main-page").innerHTML = html;
+// };
+
+// window.addEventListener("hashchange", handleLocation);
+// window.addEventListener("DOMContentLoaded", handleLocation);
 
 categoryList.addEventListener("change", function () {
   console.log("hiiii");

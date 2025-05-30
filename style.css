@@ -140,6 +140,9 @@ margin-left: auto;
     float: right;
     }
 
+/* #main-page{
+    display: none;
+} */
     @media (max-width:410px) {
         .book-part{
                 grid-template-columns: 49.5% 49.5%;
