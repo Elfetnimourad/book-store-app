@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./ContactUs.css">
+    <!-- <script type="text/javascript"
+        src="https://cdn.emailjs.com/dist/email.min.js">
+</script> -->
+    <!-- <script type="text/javascript">
+        (function(){
+           emailjs.init({
+             publicKey: "yQnIvihvpekb5JbcK",
+           });
+        })();
+     </script> -->
+     <script type="text/javascript"
+     src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+(function(){
+   emailjs.init({
+     publicKey: "yQnIvihvpekb5JbcK",
+   });
+})();
+</script>
+</head>
+<body>
+        <form action="">
+            <h1>Contact Us</h1>
+            <p>Have questions or suggestions? We'd love to hear from you!</p>
+            <label for=""></label>
+            <input type="text" placeholder="username" id="name" required >
+            <br>
+            <label for=""></label>
+            <input type="email" placeholder="email adrress" id="email" required >
+            <br>
+            <label for=""></label>
+            <input type="text" placeholder="subject" id="subject" required >
+            <br>
+            <label for=""></label>
+    <textarea name="your message" placeholder="your message" id="message"></textarea>
+            <br>
+            <button type="button" class="btn-style" onclick="sendEmail()">Submit</button>
+        </form>
+        <script src="./contact.js"></script>
+
+</body>
+</html>

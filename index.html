@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <title>Book app</title>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "yQnIvihvpekb5JbcK",
+      });
+   })();
+</script>
+</head>
+<body>
+    <div class="container">
+        <div class="up-part position-fixed">
+            <i class="material-icons menu">menu</i>
+            <!-- <h1>MOVIES.</h1> -->
+             <input type="text" placeholder="Search Here" class="ms-auto input-style">
+              <div class="menu-icon" id="menuIcon">
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar d-none" id="sidebar">
+      <i class="bi bi-arrow-left" id="closeIcon"></i>
+
+      <a href="/" id="homeLink">Home</a>
+      <a href="/pages/About.html" id="aboutLink">About</a>
+
+      <select id="categorySelect" title="categorySelect">
+        <optgroup label="Categories">
+          <option value="science">science</option>
+          <option value="programming">programming</option>
+          <option value="history">history</option>
+          <option value="fiction">fiction</option>
+          <option value="psychology">psychology</option>
+          <option value="physic">physic</option>
+          <option value="biography">biography</option>
+          <option value="thinking">thinking</option>
+          
+        </optgroup>
+      </select>
+
+      <a href="/pages/ContactUs.html" id="contactLink">Contact Us</a>
+    </div>
+        </div>
+        <div class="book-part">
+          <!-- <div id="main-page"></div> -->
+     
+        </div>
+    </div>
+    <script src="./script.js"></script>
+    <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+  ></script>
+</body>
+</html>

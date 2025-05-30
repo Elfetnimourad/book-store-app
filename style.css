@@ -1,0 +1,148 @@
+
+
+.container{
+    display: flex;
+    flex-direction: row;
+    height: auto;
+}
+.up-part{
+    display: flex;
+    flex-direction: row;
+    width: 98%;
+    background-color: #2C3E50; /* Classic navy */
+    color: white;
+    padding: 7px;
+    position: absolute;
+    height: auto;
+}
+.book-part{
+    display: grid;
+    grid-template-columns: 24.5% 24.5% 24.5% 24.5% ;
+    gap: 10px;
+    /* flex-flow: nowrap; */
+    width: 100%;
+    /* justify-content: center;
+    align-items: center; */
+    background-color: #D3D3D3;
+    height: auto;
+    /* flex-wrap: wrap; */
+    margin-top: 5%;
+}
+
+.input-style{
+    border-radius: 10px;
+    height: 40px;
+    width: 250px;
+    outline:none;
+    background-color: #ECF0F1; /* Change based on header */
+}
+.menu{
+    padding: 2px;
+   transform:translateY(20%) ; 
+   height: 22px;
+   cursor: pointer;
+}
+a{
+    padding: 36px;
+    text-decoration: none;
+    cursor: pointer;
+}
+a:hover,select:hover {
+background-color: chocolate;
+}
+i{
+    cursor: pointer;
+}
+.fixed{
+    position: fixed;
+
+}
+.card-book:hover{
+    transform: scale(1.02);
+    opacity: 1.8;
+}
+.input-style:hover{
+  border: 1px solid aqua;
+}
+option{
+    background-color: white;
+    color: black;
+}
+.menu:hover{
+    opacity: 0.9;
+    border: 1px solid white;
+}
+#main-page{
+    display: none;
+}
+select{
+    background-color:black;
+    color:white;
+    padding-left: 36px;
+    border: none;
+    outline: none;
+    padding: 36px;
+    cursor: pointer;
+}
+.ms-auto{
+margin-left: auto;
+}
+
+
+
+
+
+    .menu-icon {
+      display: flex;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 24px;
+      color: black;
+    }
+
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      width: 30%;
+      height: 100vh;
+      position: fixed;
+      z-index: 99999999999999999 !important;
+      background-color: black;
+      opacity: 0.9;
+      padding: 20px;
+      gap: 15px;
+    }
+
+    .sidebar i {
+      color: white;
+      line-height: 50px;
+    }
+
+    .sidebar a,
+    .sidebar select {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+    }
+    .d-none{
+        display: none;
+    }
+    .card-book{
+        width: 100%;
+    }
+    img{
+        width: 100%;
+                height: 80vh;
+
+    }
+    .bookPdf{
+    float: right;
+    }
+
+    @media (max-width:410px) {
+        .book-part{
+                grid-template-columns: 49.5% 49.5%;
+
+        }
+    }
