@@ -54,7 +54,7 @@ a[data-link]{
     text-decoration: none;
     cursor: pointer;
 }
-a:hover,select:hover {
+a[data-link]:hover,select:hover {
 background-color: chocolate;
 }
 i{
@@ -96,7 +96,9 @@ margin-left: auto;
 }
 .bookPdf{
     text-decoration: none;
-float: right;}
+float: right;
+font-size: 20px;
+}
 
 
 
