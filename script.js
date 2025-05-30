@@ -100,6 +100,7 @@ function showItems(items) {
     bookPdf.href = `https://openlibrary.org/${element.key}/${element.title}.pdf`;
     bookPdf.innerHTML = "read";
     bookTitle.innerText = element.title;
+    bookTitle.className = "book-title";
     cardBook.appendChild(bookCover);
     cardBook.appendChild(bookTitle);
     cardBook.appendChild(bookPdf);
