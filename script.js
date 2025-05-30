@@ -47,7 +47,7 @@ window.onscroll = function () {
 getData(`https://openlibrary.org/subjects/science.json?limit=52`);
 //63a6b97b
 function showItems(items) {
-  bookPart.innerHTML = "";
+  bookPart.innerHTML = ""; //clear the list items API to Update
 
   items.forEach((element) => {
     let bookPart = document.querySelector(".book-part");
@@ -56,7 +56,7 @@ function showItems(items) {
     let cardBook = document.createElement("div");
     let bookCover = document.createElement("img");
     let bookTitle = document.createElement("p");
-    cardBook.style.height = "90%";
+    cardBook.style.height = "100%";
     cardBook.style.borderRadius = "10px";
     cardBook.style.backgroundColor = "white";
     cardBook.className = "card-book";

@@ -139,3 +139,10 @@ margin-left: auto;
     .bookPdf{
     float: right;
     }
+
+    @media (max-width:410px) {
+        .book-part{
+                grid-template-columns: 49.5% 49.5%;
+
+        }
+    }
