@@ -38,6 +38,7 @@ menuIcon.addEventListener("click", function () {
 
 // window.addEventListener("hashchange", handleLocation);
 // window.addEventListener("DOMContentLoaded", handleLocation);
+// Utility to fetch and render HTML pages
 
 categoryList.addEventListener("change", function () {
   console.log("hiiii");
