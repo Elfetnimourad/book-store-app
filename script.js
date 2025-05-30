@@ -8,6 +8,7 @@ let categoryList = document.querySelector("#categorySelect");
 let bookPart = document.querySelector(".book-part");
 let About = document.getElementById("aboutLink");
 // let array = [];
+let arr = JSON.parse(localStorage.getItem("arr")) || [];
 
 closeIcon.addEventListener("click", function () {
   sideBar.classList.toggle("d-none", true);
@@ -56,9 +57,15 @@ async function getData(url) {
 
     const data = await res.json();
     let arr = data.works;
+
+    localStorage.setItem("arr", JSON.stringify(arr));
     console.log(data);
+
     input.onchange = function (e) {
       showItems(arr.filter((ele) => ele.title === e.target.value));
+      if (e.target.value === "") {
+        showItems(arr);
+      }
     };
 
     showItems(arr);
